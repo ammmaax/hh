@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form id="bookingForm">
+    <h1>Contact</h1>
+
+    <div class="field">
+      <label for="first">First name</label>
+      <input type="text" id="first" required>
+    </div>
+
+    <div class="field">
+      <label for="last">Last name</label>
+      <input type="text" id="last" required>
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" required>
+    </div>
+
+    <div class="field">
+      <label>Date and time</label>
+      <div class="row">
+        <div>
+          <label for="day">Day</label>
+          <input type="number" id="day" min="1" max="31" required>
+        </div>
+        <div>
+          <label for="month">Month</label>
+          <select id="month" required>
+            <option value=""></option>
+            <option>January</option>
+            <option>February</option>
+            <option>March</option>
+            <option>April</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>August</option>
+            <option>September</option>
+            <option>October</option>
+            <option>November</option>
+            <option>December</option>
+          </select>
+        </div>
+        <div>
+          <label for="year">Year</label>
+          <input type="number" id="year" min="2026" required>
+        </div>
+        <div>
+          <label for="time">Time</label>
+          <input type="time" id="time" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Seating preference</label>
+      <div class="radio">
+        <input type="radio" name="seat" id="indoor" value="Indoor">
+        <label for="indoor">Indoor</label>
+      </div>
+      <div class="radio">
+        <input type="radio" name="seat" id="outdoor" value="Outdoor">
+        <label for="outdoor">Outdoor</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="extra">Additional requests</label>
+      <input type="text" id="extra">
+    </div>
+
+    <div class="checkbox field">
+      <input type="checkbox" id="news">
+      <label for="news">Yes, subscribe me to your newsletter.</label>
+    </div>
+
+    <button type="submit">Request booking</button>
+
+    <p id="message"></p>
+  </form>
+
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var name = document.getElementById("first").value;
+      document.getElementById("message").textContent =
+        "Спасибо, " + name + "! Ваша заявка отправлена.";
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
